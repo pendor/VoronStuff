@@ -1,3 +1,4 @@
 out
 blacklist-mine
 *.oscad
+*.log

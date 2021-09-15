@@ -1,0 +1,5 @@
+# Note: Any accent parts that start with [a] need double backslashes on the brackets.
+# IE \\[a\\]_stopgap_80T_hubbed_gear.stl
+# You can enter folders or individual STL's.  Any folders are prefix matches.
+# So if you enter "Skirts" you get no skirts.  If you enter Skirts/250 and Skirts/350, you
+# only get 300mm skirts, etc.

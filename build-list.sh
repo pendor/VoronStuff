@@ -113,15 +113,15 @@ find "${VORON_DIR}" -iname \*.stl | sort | while read f ; do
   fi
   
   echo "<div class=\"part\"><img src=\"${path}/${png}\"/><br/>" >> $OUT_DIR/index.html
-  if [ $count -gt 1 ] ; then
-    echo "<span class=\"count\">${count}</span> " >> $OUT_DIR/index.html
-  fi
   echo "${barename}<br/>" >> $OUT_DIR/index.html
   echo "Printed: <span class=\"checklist\">" >> $OUT_DIR/index.html
   for (( c=1; c<=$count; c++ )) ; do
     echo "&#9744;" >> $OUT_DIR/index.html
   done
-  echo "</span><br/>GCode:" >> $OUT_DIR/index.html
+  echo "</span><br/>" >> $OUT_DIR/index.html
+  if [ $count -gt 1 ] ; then
+    echo "<span class=\"count\">${count}</span>" >> $OUT_DIR/index.html
+  fi
   echo "</div>" >> $OUT_DIR/index.html
 done
 

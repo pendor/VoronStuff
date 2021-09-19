@@ -4,6 +4,11 @@
   padding: 1em;
   min-height: 270px;
 }
+@media print {
+  .part {
+    break-inside: avoid;
+  }
+}
 .count {
   border: 2px solid black;
   font-weight: bolder;

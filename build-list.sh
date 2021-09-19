@@ -1,4 +1,25 @@
 #!/bin/bash
+#
+# This script walks a tree of folders looking for any STL files.  It builds an index
+# with a thumbnail and the filename of each STL found.  It's intended for printing a 
+# checklist for printing out parts for a Voron printer build.  It's been tested with
+# the 2.4, but it should work with others provided the same naming convention is specified.
+# This kit interprets filenames as described in the Voron build manual.  Specifically
+# filenames prefixed with "[a]" with be previewed in an alternative highlight color.
+# Filenames ending with IE "_x2" with indicate that 2 copies of that part should be 
+# printed by showing the count in a box and also printing an appropriate number of
+# checkboxes.
+#
+# This script requires OpenSCAD to produce thumbnails and wkhtmltopdf to convert 
+# generated HTML to PDF.  As released, paths are configured for MacOS.
+#
+# You may configure which parts to print by editing the blacklist file.  Any path
+# prefixes or filenames listed in that file will not appear in the index.  You can
+# use the blacklist to skip skirts for other printer sizes, electronic brackets you're
+# not using, etc.
+#
+# This script is released under the terms of the GPL, version 3 only.
+# Copyright (c) 2021 Zachary Bedell.  Some rights reserved.
 
 oscad="/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD"
 VORON_DIR=../Voron-2-2.4r1/STLs/VORON2.4
@@ -130,3 +151,5 @@ cat >> $OUT_DIR/index.html <<EOF
 </body>
 </html>
 EOF
+
+wkhtmltopdf --enable-local-file-access --page-size Letter --print-media-type out/index.html out/index.pdf

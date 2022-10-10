@@ -1,0 +1,35 @@
+# This connection is the AP Mode configuration.
+# Fill in the SETME's below.
+
+[connection]
+id=Hotspot
+uuid=[SETME: UUID]
+type=wifi
+autoconnect=false
+interface-name=[SETME: WIFI DEV]
+permissions=
+timestamp=1659999270
+
+[wifi]
+mac-address-blacklist=
+mode=ap
+seen-bssids=[SETME: WIFI MAC]
+ssid=[SETME: NEW SSID]
+
+[wifi-security]
+group=ccmp;
+key-mgmt=wpa-psk
+pairwise=ccmp;
+proto=rsn;
+psk=[SETME: WIFI PASSWORD]
+
+[ipv4]
+dns-search=
+method=shared
+
+[ipv6]
+addr-gen-mode=stable-privacy
+dns-search=
+method=ignore
+
+[proxy]
